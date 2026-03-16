@@ -5,48 +5,17 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { DOC_SECTIONS } from '@/lib/docs-nav'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-const NAV_LINKS = [
-  {
-    title: 'Overview',
-    links: [
-      { href: '/docs', label: 'Introduction' },
-      { href: '/docs/getting-started', label: 'Getting Started' },
-    ]
-  },
-  {
-    title: 'Core Features',
-    links: [
-      { href: '/docs/lead-capture', label: 'Lead Capture' },
-      { href: '/docs/crm', label: 'CRM Pipeline' },
-      { href: '/docs/ai-tools', label: 'AI Tools' },
-    ]
-  },
-  {
-    title: 'Advanced',
-    links: [
-      { href: '/docs/imports', label: 'CSV Imports' },
-      { href: '/docs/webhooks', label: 'Webhooks' },
-    ]
-  },
-  {
-    title: 'Resources',
-    links: [
-      { href: '/docs/billing', label: 'Billing & Plans' },
-      { href: '/docs/faq', label: 'FAQ' },
-    ]
-  }
-]
-
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname()
   return (
     <nav className="flex flex-col gap-6">
-      {NAV_LINKS.map((section) => (
+      {DOC_SECTIONS.map((section) => (
         <div key={section.title}>
           <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">
             {section.title}
@@ -82,19 +51,26 @@ export function DocsSidebar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
-  const currentPage = NAV_LINKS.flatMap(s => s.links).find(l => l.href === pathname)
+  const currentPage = DOC_SECTIONS.flatMap(s => s.links).find(l => l.href === pathname)
 
   return (
     <>
-      {/* Mobile collapsible nav */}
+      {/* Mobile collapsible nav — clearly a menu so users know they can open it */}
       <div className="md:hidden w-full border-b border-white/[0.06] bg-[#0d0d0d]">
         <button
           onClick={() => setOpen(!open)}
           className="w-full flex items-center justify-between px-6 py-4 text-sm hover:bg-white/[0.02] transition-colors"
+          aria-expanded={open}
+          aria-label={open ? 'Close docs menu' : 'Open docs menu'}
         >
-          <span className="text-white font-medium">{currentPage?.label ?? 'Docs Navigation'}</span>
+          <span className="flex items-center gap-3 text-white font-medium">
+            <svg className="w-5 h-5 text-[#888] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            {open ? 'Close menu' : 'Menu'}
+          </span>
           <svg
-            className={cn("w-4 h-4 text-[#888] transition-transform", open && "rotate-180")}
+            className={cn("w-4 h-4 text-[#888] transition-transform shrink-0", open && "rotate-180")}
             fill="none" viewBox="0 0 24 24" stroke="currentColor"
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -102,6 +78,7 @@ export function DocsSidebar() {
         </button>
         {open && (
           <div className="px-6 pb-6 border-t border-white/[0.06] pt-4">
+            <p className="text-xs text-[#666] mb-3">Currently: {currentPage?.label ?? 'Introduction'}</p>
             <NavLinks onNavigate={() => setOpen(false)} />
           </div>
         )}

@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/marketing/Navbar'
 import { DocsSidebar } from '@/components/docs/DocsSidebar'
+import { DocsNextLink } from '@/components/docs/DocsNextLink'
 import { Footer } from '@/components/marketing/Footer'
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1 min-w-0 px-6 py-10 md:px-12 lg:px-20 overflow-y-auto">
           <article className="max-w-3xl pb-24 prose prose-invert prose-violet">
             {children}
+            <DocsNextLink />
           </article>
         </main>
       </div>

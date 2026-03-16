@@ -4,28 +4,28 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
 
 export default function LandingPage() {
   return (
-    <div className="text-[#ededed] bg-[#0a0a0a] min-h-screen overflow-hidden selection:bg-violet-500/30">
+    <div className="text-[#ededed] bg-[#0a0a0a] min-h-screen overflow-x-hidden selection:bg-violet-500/30">
 
 
       {/* ── Hero / App Preview ─────────────────────────────────────────── */}
-      <section className="relative pt-24 md:pt-36 pb-20 px-6 flex flex-col items-center justify-center text-center">
+      <section className="relative pt-24 md:pt-36 pb-20 px-4 sm:px-6 flex flex-col items-center justify-center text-center">
         {/* Background Gradients */}
         <div className="pointer-events-none absolute -top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-violet-700/20 rounded-full blur-[120px]" />
         
-        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center min-w-0 w-full">
           <div className="inline-flex items-center gap-2 text-xs font-semibold text-violet-400 bg-violet-500/10 border border-violet-500/20 rounded-full px-3 py-1.5 mb-8 shadow-[0_0_15px_rgba(124,58,237,0.15)]">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
             Built for modern network marketing
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-[1.1] md:leading-[1.05]">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-[1.15] md:leading-[1.05] break-words">
             Turn chaotic DMs into{' '}
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-500">
               a closing pipeline.
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-[#888] max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-[#888] max-w-2xl mx-auto mb-10 leading-relaxed break-words px-1">
             Stop losing people in your notes app. ProspectFlow gives you beautiful capture links, a real CRM, and AI replies for <span className="text-[#ededed] font-medium">credit fixing, travel packages, identity monitoring, and wealth education</span>.
           </p>
 
@@ -63,8 +63,8 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Mockup Body: The CRM Board */}
-              <div className="flex-1 bg-[#0a0a0a] p-3 sm:p-6 lg:p-8 flex gap-3 sm:gap-6 overflow-x-auto">
+              {/* Mockup Body: The CRM Board — min-w-0 so flex allows horizontal scroll on mobile */}
+              <div className="flex-1 min-w-0 bg-[#0a0a0a] p-3 sm:p-6 lg:p-8 flex gap-3 sm:gap-6 overflow-x-auto overflow-y-hidden">
                 {/* Animated Origin Nodes & SVG Flow Lines connecting to Pipeline */}
               <div className="absolute -left-12 top-0 bottom-0 w-12 hidden lg:flex flex-col justify-center gap-12 z-0">
                 <div className="relative group/node">
