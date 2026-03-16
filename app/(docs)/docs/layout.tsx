@@ -12,7 +12,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
     <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-[#ededed]">
       <Navbar />
       
-      <div className="flex-1 max-w-7xl w-full mx-auto flex pt-16">
+      <div className="flex-1 max-w-7xl w-full mx-auto flex flex-col md:flex-row pt-16">
         <DocsSidebar />
         
         <main className="flex-1 min-w-0 px-6 py-10 md:px-12 lg:px-20 overflow-y-auto">

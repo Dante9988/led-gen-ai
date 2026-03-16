@@ -8,7 +8,7 @@ export default function LandingPage() {
 
 
       {/* ── Hero / App Preview ─────────────────────────────────────────── */}
-      <section className="relative pt-36 pb-20 px-6 flex flex-col items-center justify-center text-center">
+      <section className="relative pt-24 md:pt-36 pb-20 px-6 flex flex-col items-center justify-center text-center">
         {/* Background Gradients */}
         <div className="pointer-events-none absolute -top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-violet-700/20 rounded-full blur-[120px]" />
         
@@ -18,9 +18,9 @@ export default function LandingPage() {
             Built for modern network marketing
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-[1.05]">
-            Turn chaotic DMs into <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-500">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-[1.1] md:leading-[1.05]">
+            Turn chaotic DMs into{' '}
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-500">
               a closing pipeline.
             </span>
           </h1>
@@ -48,7 +48,7 @@ export default function LandingPage() {
           {/* Gamified App Mockup */}
           <div className="relative w-full max-w-5xl animate-float">
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-b from-violet-600/30 to-indigo-600/10 blur-xl opacity-50" />
-            <div className="relative bg-[#0d0d0d] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col aspect-[16/9] md:aspect-auto">
+            <div className="relative bg-[#0d0d0d] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col min-h-[300px] md:min-h-0">
               
               {/* Mockup Header */}
               <div className="h-12 border-b border-white/[0.05] bg-[#111] flex items-center px-4 gap-3">
@@ -64,7 +64,7 @@ export default function LandingPage() {
               </div>
 
               {/* Mockup Body: The CRM Board */}
-              <div className="flex-1 bg-[#0a0a0a] p-6 lg:p-8 flex gap-6 overflow-hidden">
+              <div className="flex-1 bg-[#0a0a0a] p-3 sm:p-6 lg:p-8 flex gap-3 sm:gap-6 overflow-x-auto">
                 {/* Animated Origin Nodes & SVG Flow Lines connecting to Pipeline */}
               <div className="absolute -left-12 top-0 bottom-0 w-12 hidden lg:flex flex-col justify-center gap-12 z-0">
                 <div className="relative group/node">
@@ -87,7 +87,7 @@ export default function LandingPage() {
               </div>
 
               {/* Column: New */}
-              <div className="flex-1 min-w-[250px] bg-white/[0.02] rounded-xl border border-white/[0.05] p-4 flex flex-col gap-3 relative z-10">
+              <div className="flex-1 min-w-[220px] sm:min-w-[250px] flex-shrink-0 bg-white/[0.02] rounded-xl border border-white/[0.05] p-4 flex flex-col gap-3 relative z-10">
                   <div className="text-xs font-semibold text-[#888] flex items-center gap-2 uppercase tracking-wider mb-2">
                     <div className="w-2 h-2 rounded-full bg-violet-400" /> New Leads (12)
                   </div>
@@ -115,7 +115,7 @@ export default function LandingPage() {
                 </div>
 
                 {/* Column: Contacted */}
-                <div className="flex-1 min-w-[250px] bg-white/[0.02] rounded-xl border border-white/[0.05] p-4 flex flex-col gap-3">
+                <div className="flex-1 min-w-[220px] sm:min-w-[250px] flex-shrink-0 bg-white/[0.02] rounded-xl border border-white/[0.05] p-4 flex flex-col gap-3">
                   <div className="text-xs font-semibold text-[#888] flex items-center gap-2 uppercase tracking-wider mb-2">
                     <div className="w-2 h-2 rounded-full bg-amber-400" /> Contacted (8)
                   </div>
