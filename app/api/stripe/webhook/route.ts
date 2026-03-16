@@ -4,9 +4,6 @@ import { stripe } from '@/lib/stripe'
 import { upsertSubscription, cancelSubscription, planFromPriceId } from '@/lib/billing'
 import type { Stripe } from 'stripe'
 
-// Must use raw body for Stripe signature verification
-export const config = { api: { bodyParser: false } }
-
 export async function POST(req: NextRequest) {
   const body = await req.text()
   const headersList = await headers()
@@ -52,7 +49,7 @@ export async function POST(req: NextRequest) {
           stripeSubscriptionId: subscription.id,
           plan: planFromPriceId(priceId ?? ''),
           status: subscription.status as 'active' | 'trialing' | 'past_due' | 'canceled' | 'unpaid',
-          currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+          currentPeriodEnd: new Date((subscription.items.data[0]?.current_period_end || 0) * 1000),
         })
         break
       }
@@ -72,7 +69,7 @@ export async function POST(req: NextRequest) {
           stripeSubscriptionId: subscription.id,
           plan: planFromPriceId(priceId ?? ''),
           status: subscription.status as 'active' | 'trialing' | 'past_due' | 'canceled' | 'unpaid',
-          currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+          currentPeriodEnd: new Date((subscription.items.data[0]?.current_period_end || 0) * 1000),
         })
         break
       }

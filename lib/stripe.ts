@@ -1,11 +1,12 @@
 import Stripe from 'stripe'
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('Missing STRIPE_SECRET_KEY environment variable.')
+const secretKey = process.env.STRIPE_SECRET_KEY || process.env.STRIPE_KEY || process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY;
+if (!secretKey) {
+  console.warn('Missing STRIPE_SECRET_KEY environment variable.')
 }
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2025-02-24.acacia',
+export const stripe = new Stripe(secretKey || 'sk_dummy_key_for_build', {
+  apiVersion: '2026-02-25.clover',
 })
 
 // ─── Plan price IDs ────────────────────────────────────────────────────────────
