@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { DOC_SECTIONS } from '@/lib/docs-nav'
+import { DOC_SECTIONS, FLAT_DOC_LINKS } from '@/lib/docs-nav'
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -51,7 +51,7 @@ export function DocsSidebar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
-  const currentPage = DOC_SECTIONS.flatMap(s => s.links).find(l => l.href === pathname)
+  const currentPage = FLAT_DOC_LINKS.find((l) => l.href === pathname)
 
   return (
     <>
