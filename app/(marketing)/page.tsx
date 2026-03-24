@@ -26,7 +26,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-[#888] max-w-2xl mx-auto mb-10 leading-relaxed break-words px-1">
-            Stop losing people in your notes app. ProspectFlow gives you beautiful capture links, a real CRM, and AI replies for <span className="text-[#ededed] font-medium">credit fixing, travel packages, identity monitoring, and wealth education</span>.
+            Stop losing people in your notes app. Closely AI gives you beautiful capture links, a real CRM, and AI replies for <span className="text-[#ededed] font-medium">credit fixing, travel packages, identity monitoring, and wealth education</span>.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mb-24 w-full">
@@ -381,9 +381,9 @@ export default function LandingPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          ProspectFlow
+          Closely AI
         </div>
-        <p className="text-[#555] text-sm">© {new Date().getFullYear()} ProspectFlow. All rights reserved.</p>
+        <p className="text-[#555] text-sm">© {new Date().getFullYear()} Closely AI. All rights reserved.</p>
       </footer>
 
     </div>

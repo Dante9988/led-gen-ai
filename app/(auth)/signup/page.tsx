@@ -28,7 +28,7 @@ export default function SignupPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h1 className="text-lg font-semibold text-[var(--text)]">ProspectFlow</h1>
+          <h1 className="text-lg font-semibold text-[var(--text)]">Closely AI</h1>
           <p className="text-sm text-[var(--muted)] mt-0.5">Create your free account</p>
         </div>
 

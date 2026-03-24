@@ -178,32 +178,32 @@ export function LeadCard({ lead, optimisticUpdate, onOpenAI }: { lead: Lead, opt
           <div className="flex items-center justify-start gap-1.5">
             {lead.phone && (
               <>
-                <a 
-                  href={`tel:${lead.phone}`} 
+                <a
+                  href={`tel:${lead.phone}`}
                   onClick={() => startTransition(() => { logContactAction(lead.id, 'phone') })}
-                  title="Call Prospect" 
-                  className="p-1.5 text-[var(--subtle)] hover:text-blue-400 hover:bg-blue-400/10 rounded-lg transition-all hover:scale-110 active:scale-95 bg-[var(--bg)] border border-[var(--border)] hover:border-blue-400/30 shadow-sm"
+                  title="Call Prospect"
+                  className="p-2 sm:p-1.5 text-[var(--subtle)] hover:text-blue-400 hover:bg-blue-400/10 rounded-lg transition-all hover:scale-110 active:scale-95 bg-[var(--bg)] border border-[var(--border)] hover:border-blue-400/30 shadow-sm min-h-[40px] min-w-[40px] sm:min-h-0 sm:min-w-0 flex items-center justify-center"
                 >
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                  <svg className="w-4 h-4 sm:w-3.5 sm:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                 </a>
-                <a 
-                  href={`sms:${lead.phone}`} 
+                <a
+                  href={`sms:${lead.phone}`}
                   onClick={() => startTransition(() => { logContactAction(lead.id, 'sms') })}
-                  title="Text Prospect" 
-                  className="p-1.5 text-[var(--subtle)] hover:text-green-400 hover:bg-green-400/10 rounded-lg transition-all hover:scale-110 active:scale-95 bg-[var(--bg)] border border-[var(--border)] hover:border-green-400/30 shadow-sm"
+                  title="Text Prospect"
+                  className="p-2 sm:p-1.5 text-[var(--subtle)] hover:text-green-400 hover:bg-green-400/10 rounded-lg transition-all hover:scale-110 active:scale-95 bg-[var(--bg)] border border-[var(--border)] hover:border-green-400/30 shadow-sm min-h-[40px] min-w-[40px] sm:min-h-0 sm:min-w-0 flex items-center justify-center"
                 >
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                  <svg className="w-4 h-4 sm:w-3.5 sm:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
                 </a>
               </>
             )}
             {lead.email && (
-              <a 
-                href={`mailto:${lead.email}`} 
+              <a
+                href={`mailto:${lead.email}`}
                 onClick={() => startTransition(() => { logContactAction(lead.id, 'email') })}
-                title="Email Prospect" 
-                className="p-1.5 text-[var(--subtle)] hover:text-rose-400 hover:bg-rose-400/10 rounded-lg transition-all hover:scale-110 active:scale-95 bg-[var(--bg)] border border-[var(--border)] hover:border-rose-400/30 shadow-sm"
+                title="Email Prospect"
+                className="p-2 sm:p-1.5 text-[var(--subtle)] hover:text-rose-400 hover:bg-rose-400/10 rounded-lg transition-all hover:scale-110 active:scale-95 bg-[var(--bg)] border border-[var(--border)] hover:border-rose-400/30 shadow-sm min-h-[40px] min-w-[40px] sm:min-h-0 sm:min-w-0 flex items-center justify-center"
               >
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                <svg className="w-4 h-4 sm:w-3.5 sm:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               </a>
             )}
           </div>
@@ -211,11 +211,11 @@ export function LeadCard({ lead, optimisticUpdate, onOpenAI }: { lead: Lead, opt
           {onOpenAI && (
             <button
               onClick={(e) => { e.stopPropagation(); onOpenAI(lead) }}
-              title="Generate an AI message for this lead"
-              className="px-2.5 py-1.5 text-[10px] font-bold tracking-wide text-violet-400 hover:text-white hover:bg-violet-600 bg-violet-500/10 border border-violet-500/30 rounded-lg transition-all hover:scale-105 active:scale-95 shadow-[0_2px_10px_rgb(124,58,237,0.1)] flex items-center justify-center gap-1.5"
+              title={aiLabel}
+              className="px-2.5 py-1.5 min-h-[40px] sm:min-h-0 text-[10px] font-bold tracking-wide text-violet-400 hover:text-white hover:bg-violet-600 bg-violet-500/10 border border-violet-500/30 rounded-lg transition-all hover:scale-105 active:scale-95 shadow-[0_2px_10px_rgb(124,58,237,0.1)] flex items-center justify-center gap-1.5"
             >
               <span className="text-[12px] leading-none -mt-0.5">🤖</span>
-              {aiLabel}
+              <span className="hidden sm:inline">{aiLabel}</span>
             </button>
           )}
         </div>

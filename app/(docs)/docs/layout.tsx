@@ -4,8 +4,8 @@ import { DocsNextLink } from '@/components/docs/DocsNextLink'
 import { Footer } from '@/components/marketing/Footer'
 
 export const metadata = {
-  title: 'Documentation | ProspectFlow',
-  description: 'Learn how to use ProspectFlow to manage your network marketing leads.',
+  title: 'Documentation | Closely AI',
+  description: 'Learn how to use Closely AI to manage your network marketing leads.',
 }
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {

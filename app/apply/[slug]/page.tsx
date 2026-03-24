@@ -45,7 +45,7 @@ export default async function ApplyPage({ params }: Props) {
         </div>
 
         <p className="text-center text-xs text-gray-400 mt-6">
-          Powered by ProspectFlow
+          Powered by Closely AI
         </p>
       </div>
     </div>

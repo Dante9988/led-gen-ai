@@ -3,28 +3,28 @@ export default function FaqDocs() {
     <div>
       <h1 className="text-4xl font-bold text-white mb-4 tracking-tight">Frequently Asked Questions</h1>
       <p className="text-lg text-[#888] leading-relaxed mb-12">
-        Find answers to the most common questions about using ProspectFlow in your network marketing business.
+        Find answers to the most common questions about using Closely AI in your network marketing business.
       </p>
 
       <div className="space-y-8">
         <div className="border border-white/10 bg-[#111] rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-white mb-2">Do my customers pay through ProspectFlow?</h3>
+          <h3 className="text-lg font-semibold text-white mb-2">Do my customers pay through Closely AI?</h3>
           <p className="text-[#888] leading-relaxed">
-            No. ProspectFlow is solely a productivity and CRM tool for you as an agent. Your customers sign up through your own MLM company's referral link or portal. ProspectFlow never touches that transactional layer.
+            No. Closely AI is solely a productivity and CRM tool for you as an agent. Your customers sign up through your own MLM company's referral link or portal. Closely AI never touches that transactional layer.
           </p>
         </div>
 
         <div className="border border-white/10 bg-[#111] rounded-xl p-6">
           <h3 className="text-lg font-semibold text-white mb-2">Does this replace my MLM company website?</h3>
           <p className="text-[#888] leading-relaxed">
-            No—it works alongside it. ProspectFlow handles your lead capture, CRM pipeline, and advanced AI follow-up workflows. Your company still handles compensation, product fulfillment, and official recruiting details. 
+            No—it works alongside it. Closely AI handles your lead capture, CRM pipeline, and advanced AI follow-up workflows. Your company still handles compensation, product fulfillment, and official recruiting details. 
           </p>
         </div>
 
         <div className="border border-white/10 bg-[#111] rounded-xl p-6">
           <h3 className="text-lg font-semibold text-white mb-2">Can I use my own referral links?</h3>
           <p className="text-[#888] leading-relaxed">
-            Yes, always. ProspectFlow does not aggressively override or generate mandatory referral links for your overarching company. You use your own links wherever you choose to share them in the AI generated follow-up messages.
+            Yes, always. Closely AI does not aggressively override or generate mandatory referral links for your overarching company. You use your own links wherever you choose to share them in the AI generated follow-up messages.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function FaqDocs() {
         <div className="border border-white/10 bg-[#111] rounded-xl p-6">
           <h3 className="text-lg font-semibold text-white mb-2">Is SMS included yet?</h3>
           <p className="text-[#888] leading-relaxed">
-            SMS functionality is not currently implemented or included within ProspectFlow natively. Expanding communication modules directly onto phone hardware is planned for a future phase iteration.
+            SMS functionality is not currently implemented or included within Closely AI natively. Expanding communication modules directly onto phone hardware is planned for a future phase iteration.
           </p>
         </div>
 

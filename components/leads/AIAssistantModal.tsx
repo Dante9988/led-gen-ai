@@ -65,8 +65,8 @@ export function AIAssistantModal({ lead, onClose, onStatusUpdate }: AIAssistantM
         onClick={onClose} 
       />
 
-      {/* Modal Container */}
-      <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-[var(--bg)] border border-[var(--border)] rounded-2xl shadow-2xl z-50 flex flex-col md:flex-row overflow-hidden animate-in zoom-in-95 duration-200">
+      {/* Modal Container — inset on mobile, centered on md+ */}
+      <div className="fixed inset-4 sm:inset-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:w-full sm:max-w-4xl bg-[var(--bg)] border border-[var(--border)] rounded-2xl shadow-2xl z-50 flex flex-col md:flex-row overflow-y-auto md:overflow-hidden animate-in zoom-in-95 duration-200">
         
         {/* Left Panel: Configuration */}
         <div className="w-full md:w-80 bg-[var(--surface)] p-6 border-b md:border-b-0 md:border-r border-[var(--border)] flex flex-col shrink-0">

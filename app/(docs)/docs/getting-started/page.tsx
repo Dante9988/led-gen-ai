@@ -10,7 +10,7 @@ export default function GettingStarted() {
 
       <h2 className="text-2xl font-semibold text-white mb-4 mt-8">1. Create Your Account</h2>
       <p className="text-[#888] leading-relaxed mb-6">
-        Getting started with ProspectFlow is fast and easy. Simply click <strong>Sign Up</strong> on our public homepage and provide an email. Your account gives you immediate access to your own personal Lead Capture link and the Pipeline Dashboard exactly as seen in our showcases.
+        Getting started with Closely AI is fast and easy. Simply click <strong>Sign Up</strong> on our public homepage and provide an email. Your account gives you immediate access to your own personal Lead Capture link and the Pipeline Dashboard exactly as seen in our showcases.
       </p>
 
       <h2 className="text-2xl font-semibold text-white mb-4 mt-8">2. Configure Your Profile</h2>

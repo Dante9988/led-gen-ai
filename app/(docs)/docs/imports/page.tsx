@@ -3,14 +3,14 @@ export default function ImportsDocs() {
     <div>
       <h1 className="text-4xl font-bold text-white mb-4 tracking-tight">Imports</h1>
       <p className="text-lg text-[#888] leading-relaxed mb-8">
-        Learn how to onboard existing leads by importing CSV datasets seamlessly into ProspectFlow.
+        Learn how to onboard existing leads by importing CSV datasets seamlessly into Closely AI.
       </p>
 
       <div className="h-px bg-white/[0.06] mb-8" />
 
       <h2 className="text-2xl font-semibold text-white mb-4 mt-8">CSV Import Basics</h2>
       <p className="text-[#888] leading-relaxed mb-6">
-        Transitioning to ProspectFlow from an outdated spreadsheet layout or contact book doesn't have to be arduous. Using our built-in importer, you can upload robust client lists directly to your New leads column.
+        Transitioning to Closely AI from an outdated spreadsheet layout or contact book doesn't have to be arduous. Using our built-in importer, you can upload robust client lists directly to your New leads column.
       </p>
 
       <h2 className="text-2xl font-semibold text-white mb-4 mt-8">Supported Workflow</h2>

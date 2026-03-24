@@ -3,14 +3,14 @@ export default function BillingDocs() {
     <div>
       <h1 className="text-4xl font-bold text-white mb-4 tracking-tight">Billing & Plans</h1>
       <p className="text-lg text-[#888] leading-relaxed mb-8">
-        Manage your subscription to unlock powerful new capabilities within ProspectFlow.
+        Manage your subscription to unlock powerful new capabilities within Closely AI.
       </p>
 
       <div className="h-px bg-white/[0.06] mb-8" />
 
       <h2 className="text-2xl font-semibold text-white mb-4 mt-8">Overview</h2>
       <p className="text-[#888] leading-relaxed mb-6">
-        ProspectFlow utilizes Stripe to seamlessly manage your billing and subscriptions. You can view your current plan, upgrade, or manage payment methods at any time directly through the <strong>Settings &gt; Billing</strong> panel in your dashboard.
+        Closely AI utilizes Stripe to seamlessly manage your billing and subscriptions. You can view your current plan, upgrade, or manage payment methods at any time directly through the <strong>Settings &gt; Billing</strong> panel in your dashboard.
       </p>
 
       <h2 className="text-2xl font-semibold text-white mb-4 mt-8">The Free Plan</h2>

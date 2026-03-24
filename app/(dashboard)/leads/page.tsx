@@ -42,7 +42,7 @@ export default async function LeadsPage() {
       </div>
 
       {/* Top Summary Metrics */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-6">
         <div className="bg-gradient-to-br from-[var(--surface)] to-[var(--bg)] border border-[var(--border)] rounded-2xl p-5 flex items-center justify-between shadow-sm hover:border-[var(--border-md)] hover:-translate-y-0.5 transition-all">
           <div>
             <p className="text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider mb-1.5">Total Leads</p>
@@ -63,7 +63,7 @@ export default async function LeadsPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-[var(--surface)] to-[var(--bg)] border border-[var(--border)] rounded-2xl p-5 flex items-center justify-between shadow-sm hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all group">
+        <div className="col-span-2 sm:col-span-1 bg-gradient-to-br from-[var(--surface)] to-[var(--bg)] border border-[var(--border)] rounded-2xl p-5 flex items-center justify-between shadow-sm hover:border-emerald-500/30 hover:-translate-y-0.5 transition-all group">
           <div>
             <p className="text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider mb-1.5 group-hover:text-emerald-400/80 transition-colors">New Today</p>
             <p className="text-3xl font-extrabold text-emerald-400">{newToday}</p>
