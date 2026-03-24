@@ -1,7 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import type { Lead, LeadInsert, LeadUpdate, DashboardStats, LeadStatus } from '@/types'
-
-const LEAD_STATUSES: LeadStatus[] = ['New', 'Contacted', 'Interested', 'Follow-up', 'Closed']
+import { LEAD_STATUSES } from '@/types'
 
 export async function getLeads(): Promise<Lead[]> {
   const supabase = await createClient()

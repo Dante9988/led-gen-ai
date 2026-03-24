@@ -1,7 +1,7 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-import { createAdminClient } from '@/lib/supabase/admin'
+import { createClient } from '@/lib/supabase/server'
 import { getProfileBySlug } from '@/lib/profiles'
 
 export interface PublicLeadFormState {
@@ -26,14 +26,14 @@ export async function submitPublicLeadAction(
   const profile = await getProfileBySlug(slug)
   if (!profile) return { error: 'Agent not found.' }
 
-  const admin = createAdminClient()
-  const { error } = await admin.from('leads').insert({
+  const supabase = await createClient()
+  const { error } = await supabase.from('leads').insert({
     owner_id: profile.id,
     full_name,
     phone,
     email,
     source: 'public_form',
-    status: 'New',
+    status: 'new',
     notes: [interest ? `Interest: ${interest}` : null, notes].filter(Boolean).join('\n') || null,
   })
 

@@ -4,6 +4,10 @@ import { revalidatePath } from 'next/cache'
 import { upsertProfile } from '@/lib/profiles'
 
 const SLUG_RE = /^[a-z0-9][a-z0-9-]{1,28}[a-z0-9]$/
+const RESERVED_SLUGS = new Set([
+  'api', 'auth', 'dashboard', 'settings', 'leads', 'docs',
+  'pricing', 'apply', 'login', 'signup', 'features', 'admin'
+])
 
 export interface ProfileFormState {
   success?: boolean
@@ -22,6 +26,9 @@ export async function saveProfileAction(
   if (!slug) return { error: 'Slug is required.' }
   if (!SLUG_RE.test(slug)) {
     return { error: 'Slug must be 3–30 characters, lowercase letters, numbers, or hyphens.' }
+  }
+  if (RESERVED_SLUGS.has(slug)) {
+    return { error: 'That slug is reserved and cannot be used.' }
   }
   if (!display_name) return { error: 'Display name is required.' }
 

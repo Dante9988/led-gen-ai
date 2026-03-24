@@ -1,6 +1,5 @@
 import type { LeadStatus } from '@/types'
-
-const VALID_STATUSES: LeadStatus[] = ['New', 'Contacted', 'Interested', 'Follow-up', 'Closed']
+import { LEAD_STATUSES, STATUS_LABELS } from '@/types'
 
 export interface CsvRow {
   full_name: string
@@ -56,9 +55,13 @@ export function parseCSV(csvText: string): ParseResult {
       continue
     }
 
-    const status: LeadStatus = VALID_STATUSES.includes(rawStatus as LeadStatus)
-      ? (rawStatus as LeadStatus)
-      : 'New'
+    const matchedStatus = Object.entries(STATUS_LABELS).find(
+      ([_, label]) => label.toLowerCase() === rawStatus.toLowerCase()
+    )?.[0] as LeadStatus | undefined
+    
+    const status: LeadStatus = matchedStatus && LEAD_STATUSES.includes(matchedStatus)
+      ? matchedStatus
+      : 'new'
 
     rows.push({ full_name: full_name || phone!, phone, email, source, status, notes })
   }

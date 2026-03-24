@@ -6,14 +6,12 @@ import { Select } from '@/components/ui/Select'
 import { Textarea } from '@/components/ui/Textarea'
 import { Button } from '@/components/ui/Button'
 import type { Lead, LeadStatus } from '@/types'
+import { STATUS_LABELS, LEAD_STATUSES } from '@/types'
 
-const STATUS_OPTIONS: { value: LeadStatus; label: string }[] = [
-  { value: 'New', label: 'New' },
-  { value: 'Contacted', label: 'Contacted' },
-  { value: 'Interested', label: 'Interested' },
-  { value: 'Follow-up', label: 'Follow-up' },
-  { value: 'Closed', label: 'Closed' },
-]
+const STATUS_OPTIONS = LEAD_STATUSES.map(status => ({
+  value: status,
+  label: STATUS_LABELS[status],
+}))
 
 const SOURCE_OPTIONS = [
   { value: '', label: 'Select source…' },
@@ -57,7 +55,7 @@ export function LeadForm({ action, defaultValues, submitLabel = 'Save Lead' }: L
 
       <div className="grid grid-cols-2 gap-4">
         <Select id="source" name="source" label="Source" options={SOURCE_OPTIONS} defaultValue={defaultValues?.source ?? ''} />
-        <Select id="status" name="status" label="Status" options={STATUS_OPTIONS} defaultValue={defaultValues?.status ?? 'New'} />
+        <Select id="status" name="status" label="Status" options={STATUS_OPTIONS} defaultValue={defaultValues?.status ?? 'new'} />
       </div>
 
       <Textarea

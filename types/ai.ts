@@ -33,3 +33,24 @@ export interface PostResponse {
   referralPost: string
   dmOpener: string
 }
+
+// ─── Follow-Up Assistant ───────────────────────────────────────────────────────
+
+export type FollowUpType = 'First Reply' | 'Follow-Up' | 'Qualify Lead' | 'Handle Objection'
+export type FollowUpTone = 'friendly' | 'professional' | 'direct' | 'warm'
+export type FollowUpChannel = 'sms' | 'email' | 'dm'
+export type FollowUpLength = 'short' | 'medium'
+
+export interface FollowUpRequest {
+  leadId: string
+  messageType: FollowUpType
+  tone: FollowUpTone
+  channel: FollowUpChannel
+  length: FollowUpLength
+}
+
+export interface FollowUpResponse {
+  message: string
+  nextAction: string
+  reasoningSummary: string
+}

@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { getProfileBySlug } from '@/lib/profiles'
 import type { LeadStatus } from '@/types'
-
-const VALID_STATUSES: LeadStatus[] = ['New', 'Contacted', 'Interested', 'Follow-up', 'Closed']
+import { LEAD_STATUSES } from '@/types'
 
 export async function POST(req: NextRequest) {
   let body: Record<string, unknown>
@@ -32,9 +31,9 @@ export async function POST(req: NextRequest) {
 
   // Resolve status
   const resolvedStatus: LeadStatus =
-    status && VALID_STATUSES.includes(status as LeadStatus)
+    status && LEAD_STATUSES.includes(status as LeadStatus)
       ? (status as LeadStatus)
-      : 'New'
+      : 'new'
 
   // Build notes with interest if present
   const combinedNotes = [

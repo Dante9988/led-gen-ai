@@ -1,5 +1,4 @@
 import { createClient } from '@/lib/supabase/server'
-import { createAdminClient } from '@/lib/supabase/admin'
 import type { Profile, ProfileInsert, ProfileUpdate } from '@/types'
 
 // ─── Public slug lookup ───────────────────────────────────────────────────────
@@ -8,8 +7,10 @@ import type { Profile, ProfileInsert, ProfileUpdate } from '@/types'
 
 export async function getProfileBySlug(slug: string): Promise<Profile | null> {
   try {
-    const admin = createAdminClient()
-    const { data } = await admin
+    // Uses the regular server client — the RLS policy "Public can read profiles"
+    // allows anonymous SELECT, so no admin/service-role key is needed.
+    const supabase = await createClient()
+    const { data } = await supabase
       .from('profiles')
       .select('*')
       .eq('slug', slug)
@@ -61,31 +62,47 @@ export async function ensureProfile(): Promise<Profile> {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) throw new Error('Unauthorized')
 
-  // Generate slug from email prefix, sanitised
-  const emailPrefix = user.email?.split('@')[0] ?? 'agent'
-  const baseSlug = emailPrefix
+  // 1. Get best available name (Google full_name > email prefix)
+  const meta = user.user_metadata || {}
+  const rawName = meta.full_name || meta.name || user.email?.split('@')[0] || 'agent'
+  
+  // Format for display (Title Case fallback)
+  const displayName = meta.full_name || meta.name 
+    ? rawName 
+    : rawName.charAt(0).toUpperCase() + rawName.slice(1)
+
+  // 2. Generate slug
+  const baseSlug = rawName
     .toLowerCase()
     .replace(/[^a-z0-9-]/g, '-')
     .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '')  // trim leading/trailing hyphens
     .slice(0, 24)
 
-  // Check slug uniqueness using the regular server client (no admin needed for reads)
+  // 3. Check slug uniqueness
   let slug = baseSlug
-  const { data: conflict } = await supabase
-    .from('profiles')
-    .select('id')
-    .eq('slug', slug)
-    .maybeSingle()
+  let conflict = true
+  let attempts = 0
 
-  if (conflict) {
-    slug = `${baseSlug}-${Math.random().toString(36).slice(2, 6)}`
+  while (conflict && attempts < 5) {
+    const { data } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('slug', slug)
+      .maybeSingle()
+
+    if (data) {
+      slug = `${baseSlug}-${Math.random().toString(36).slice(2, 6)}`
+      attempts++
+    } else {
+      conflict = false
+    }
   }
 
   const insert: ProfileInsert = {
     id: user.id,
     slug,
-    display_name: user.email?.split('@')[0] ?? 'Agent',
+    display_name: displayName,
     headline: 'Join my team',
     description: 'Fill out the form and I will be in touch.',
   }

@@ -27,7 +27,7 @@ export async function updateSession(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname
 
-  const isAuthRoute = pathname.startsWith('/login') || pathname.startsWith('/signup')
+  const isAuthRoute = pathname.startsWith('/login') || pathname.startsWith('/signup') || pathname.startsWith('/check-email')
   
   const isPublicRoute = 
     pathname === '/' || 
@@ -35,6 +35,7 @@ export async function updateSession(request: NextRequest) {
     pathname === '/features' ||
     pathname.startsWith('/docs') || 
     pathname.startsWith('/apply') || 
+    pathname.startsWith('/auth/callback') ||
     pathname.startsWith('/api/webhooks') ||
     isAuthRoute
 

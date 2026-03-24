@@ -10,7 +10,7 @@ import type { ReplyResponse, ReplySuggestion } from '@/types/ai'
 const TONE_CONFIG: Record<string, { label: string; accent: string; dot: string }> = {
   friendly:   { label: 'Friendly',   accent: 'border-l-emerald-500', dot: 'bg-emerald-400' },
   direct:     { label: 'Direct',     accent: 'border-l-blue-500',    dot: 'bg-blue-400' },
-  'follow-up':{ label: 'Follow-up',  accent: 'border-l-violet-500',  dot: 'bg-violet-400' },
+  qualified:  { label: 'Follow-up',  accent: 'border-l-violet-500',  dot: 'bg-violet-400' },
 }
 
 function ReplyCard({ suggestion }: { suggestion: ReplySuggestion }) {

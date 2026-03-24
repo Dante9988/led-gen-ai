@@ -80,6 +80,30 @@ export async function POST(req: NextRequest) {
         break
       }
 
+      case 'invoice.payment_failed': {
+        const invoice = event.data.object as Stripe.Invoice
+        // Stripe v20: subscription is nested under parent.subscription_details
+        const subRef = invoice.parent?.subscription_details?.subscription
+        const subId = typeof subRef === 'string' ? subRef : subRef?.id ?? null
+        if (subId) {
+          const subscription = await stripe.subscriptions.retrieve(subId)
+          const userId = subscription.metadata.userId
+          if (userId) {
+            const priceId = subscription.items.data[0]?.price.id
+            await upsertSubscription({
+              userId,
+              stripeCustomerId: subscription.customer as string,
+              stripeSubscriptionId: subscription.id,
+              plan: planFromPriceId(priceId ?? ''),
+              status: 'past_due',
+              currentPeriodEnd: new Date((subscription.items.data[0]?.current_period_end || 0) * 1000),
+            })
+          }
+          console.warn('Invoice payment failed:', { invoiceId: invoice.id, subscriptionId: subId })
+        }
+        break
+      }
+
       default:
         // Unhandled event — acknowledge but do nothing
         break

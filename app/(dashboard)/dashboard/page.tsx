@@ -8,13 +8,14 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { Button } from '@/components/ui/Button'
 import type { LeadStatus } from '@/types'
+import { LEAD_STATUSES } from '@/types'
 
 const STATUS_DOTS: Record<LeadStatus, string> = {
-  New:         'bg-blue-400',
-  Contacted:   'bg-amber-400',
-  Interested:  'bg-violet-400',
-  'Follow-up': 'bg-orange-400',
-  Closed:      'bg-emerald-400',
+  new: 'bg-blue-400',
+  contacted: 'bg-amber-400',
+  qualified: 'bg-violet-400',
+  closed: 'bg-emerald-400',
+  lost: 'bg-rose-400',
 }
 
 export default async function DashboardPage() {
@@ -64,7 +65,7 @@ export default async function DashboardPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         <StatCard label="Total" value={stats.total} accent="bg-[var(--muted)]" />
-        {(['New', 'Contacted', 'Interested', 'Follow-up', 'Closed'] as LeadStatus[]).map(s => (
+        {LEAD_STATUSES.map(s => (
           <StatCard key={s} label={s} value={stats.by_status[s] ?? 0} accent={STATUS_DOTS[s]} />
         ))}
       </div>
